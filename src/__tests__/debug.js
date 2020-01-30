@@ -36,4 +36,12 @@ test('debug pretty prints multiple containers', () => {
   )
 })
 
+test('debug uses the maxLength argument', () => {
+  const HelloWorld = () => <h1>Test</h1>
+  const {debug} = render(<HelloWorld />)
+  debug(undefined, 0)
+  expect(console.log).toHaveBeenCalledTimes(1)
+  expect(console.log).toHaveBeenCalledWith('')
+})
+
 /* eslint no-console:0 */
